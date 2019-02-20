@@ -1,23 +1,22 @@
 <template>
   <div id="app">
     <img src="./assets/logo.png">
-    <router-view/>
-    <el-checkbox v-model="checked">Check Or Not</el-checkbox>
+    <TodoList/>
   </div>
 </template>
 
 <script>
+import TodoList from './components/TodoList.vue'
 export default {
-  name: "App",
-  data() {
-    return {
-      checked: true
-    };
+  components:{
+    TodoList
   }
 };
 </script>
 
 <style>
+/* @import './variables.scss'; */
+
 #app {
   font-family: "Avenir", Helvetica, Arial, sans-serif;
   -webkit-font-smoothing: antialiased;
@@ -25,5 +24,9 @@ export default {
   text-align: center;
   color: #2c3e50;
   margin-top: 60px;
+}
+
+h1 {
+	text-align: center;
 }
 </style>
