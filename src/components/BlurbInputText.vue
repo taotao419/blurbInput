@@ -1,11 +1,9 @@
 <template>
   <div class="blurb-input">
-    <div style="float:left">
-      <el-input v-model="input" placeholder="Please input text"></el-input>
-    </div>
-    <div style="float:left">
-        <el-checkbox-button v-model="checked"><i class="fa fa-language" aria-hidden="true"></i></el-checkbox-button>
-    </div>
+    <el-input v-model="input" placeholder="Please input text" maxlength="50" clearable>
+      <template slot="append">0/50</template>
+      <el-checkbox slot="append" v-model="checked">Translate?</el-checkbox>
+    </el-input>
   </div>
 </template>
 
@@ -14,7 +12,7 @@ export default {
   data() {
     return {
       input: "",
-      checked: true,
+      checked: false,
     };
   }
 };

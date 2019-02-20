@@ -1,8 +1,12 @@
 <template>
   <div>
-    <BlurbInputText></BlurbInputText>
-
-    <el-input v-model="input" placeholder="Please input text"></el-input>
+    <table>
+      <tr>
+        <td width="500px">
+          <BlurbInputText></BlurbInputText>
+        </td>
+      </tr>
+    </table>
   </div>
 </template>
 
@@ -13,7 +17,7 @@ let nextTodoId = 1;
 
 export default {
   components: {
-    BlurbInputText,
+    BlurbInputText
   },
   data() {
     return {
