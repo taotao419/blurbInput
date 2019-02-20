@@ -8,6 +8,9 @@
 </template>
 
 <script>
+//read prop maxlength
+//show xx/50 ,if xx>50 then display red but not block user
+//typing word 
 export default {
   data() {
     return {
