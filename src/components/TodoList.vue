@@ -3,7 +3,7 @@
     <table>
       <tr>
         <td width="500px">
-          <BlurbInputText></BlurbInputText>
+          <BlurbInputText maxlength="40" v-model="myObj"></BlurbInputText>
         </td>
       </tr>
     </table>
@@ -21,6 +21,10 @@ export default {
   },
   data() {
     return {
+      myObj: {
+        input: "text from outside",
+        translated: true
+      },
       newTodoText: "",
       todos: [
         {
