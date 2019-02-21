@@ -1,10 +1,11 @@
 <template>
   <div class="blurb-input">
+    <input type="hidden" :value="blurbId">
     <el-input v-model="input" placeholder="Please input text" clearable>
-      <template slot="append">
-        <span
+      <template slot="append" >
+        <span v-show="!hasMaxLength"
           :class="{'normal':lessMaxLength,'alarm':!lessMaxLength}"
-        >{{input.length}} / {{maxlength}}</span>
+        >{{input.length}} / {{maxlength}} &nbsp;</span>
       </template>
       <el-checkbox slot="append" v-model="translated">Translate?</el-checkbox>
     </el-input>
@@ -17,20 +18,22 @@
 //typing word
 export default {
   props: {
-     obj: {
-      type: Object,
-      required: true
-    }
+    value: Object,
+    maxlength: Number
   },
   data() {
     return {
-      input: obj.input,
-      translated: obj.translated
+      input: this.value.input, //obj.input,
+      blurbId: this.value.blurbId,
+      translated: this.value.translated
     };
   },
   computed: {
     lessMaxLength: function() {
       return this.input.length < this.maxlength;
+    },
+    hasMaxLength: function() {
+      return this.maxlength === undefined;
     }
   }
 };
@@ -41,12 +44,12 @@ export default {
   border-radius: 4px 0 0 4px;
 }
 
-.alarm {
+.blurb-input .alarm {
   font-weight: bold;
   color: red;
 }
 
-.normal {
+.blurb-input .normal {
   color: green;
 }
 </style>
