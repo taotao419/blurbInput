@@ -1,7 +1,8 @@
 <template>
   <div class="blurb-input">
+    <!--the blurb Id should be displayed in html comment-->
     <input type="hidden" :value="blurbId">
-    <el-input v-model="input" placeholder="Please input text" clearable>
+    <el-input v-model="input" clearable>
       <template slot="append" >
         <span v-show="!hasMaxLength"
           :class="{'normal':lessMaxLength,'alarm':!lessMaxLength}"
